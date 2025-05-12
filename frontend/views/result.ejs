@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission Result</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+    .card { background: #f9f9f9; padding: 20px; margin: 20px 0; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Form Submission Result</h1>
+  
+  <div class="card">
+    <h2>Original Data:</h2>
+    <p><strong>Name:</strong> <%= originalData.name %></p>
+    <p><strong>Email:</strong> <%= originalData.email %></p>
+    <p><strong>Message:</strong> <%= originalData.message %></p>
+  </div>
+  
+  <div class="card">
+    <h2>Processed by Flask:</h2>
+    <p><%= processedData.message %></p>
+    <% if (processedData.received_data) { %>
+      <pre><%= JSON.stringify(processedData.received_data, null, 2) %></pre>
+    <% } %>
+  </div>
+  
+  <a href="/">Submit another form</a>
+</body>
+</html>

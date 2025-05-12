@@ -1,0 +1,31 @@
+version: '3.6'
+
+services:
+  backend:
+    build: backend
+    hostname: backend-host 
+    volumes:
+      - ./backend:/app 
+    ports:
+      - "5000:5000"
+    networks:
+      - form-assignment 
+
+  frontend:
+    build: frontend
+    hostname: frontend-host 
+    volumes:
+      - ./frontend:/app 
+    environment:
+      - BACKEND_URL=http://backend-host:5000/ 
+    ports:
+      - "3000:3000"
+    links:
+      - backend 
+    depends_on:
+      - backend 
+    networks:
+      - form-assignment 
+
+networks:
+  form-assignment: {}
