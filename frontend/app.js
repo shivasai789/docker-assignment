@@ -4,7 +4,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 
 const app = express();
-const FLASK_BACKEND = 'http://35.154.165.19:5000'; // Flask backend URL
+const FLASK_BACKEND = 'http://54.254.8.35:5000'; // Flask backend URL
 
 // Configuration
 app.set('view engine', 'ejs');
